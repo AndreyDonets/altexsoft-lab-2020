@@ -17,7 +17,7 @@ namespace task2
                 {
                     break;
                 }
-                if (!recipes.Exists(x => x.Name == name))
+                if (!recipes.Exists(x => x.Name.Equals(name, StringComparison.CurrentCultureIgnoreCase)) 
                 {
                     CreateRecipeFinish recipe = new CreateRecipeFinish();
                     Console.WriteLine("Опишите рецепт");
