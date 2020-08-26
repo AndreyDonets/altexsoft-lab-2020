@@ -2,7 +2,7 @@
 
 namespace altexsoft_lab_2020
 {
-    class StartProgram
+    class Start
     {
         public static void Go()
         {
@@ -20,16 +20,16 @@ namespace altexsoft_lab_2020
                 switch (number)
                 {
                     case "1":
-                        CutCharOrWorld.Cut();
+                        Cutter.Cut();
                         break;
                     case "2":
-                        Words.WordsCount();
+                        Words.Count();
                         break;
                     case "3":
-                        BackThirdSentence.GetBackThirdSentence();
+                        BackThirdSentence.Get();
                         break;
                     case "4":
-                        FindFile.Find();
+                        DictionariesAndFiles.FindAndWrite();
                         break;
                 }
             }

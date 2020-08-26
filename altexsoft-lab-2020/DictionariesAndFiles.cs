@@ -4,9 +4,9 @@ using System.IO;
 
 namespace altexsoft_lab_2020
 {
-    class FindFile
+    class DictionariesAndFiles
     {
-        public static void Find()
+        public static void FindAndWrite()
         {
             Console.WriteLine("Введите путь к файлу");
             string path = Console.ReadLine();
@@ -16,7 +16,7 @@ namespace altexsoft_lab_2020
                 while (true)
                 {
                     Console.Clear();
-                    Dictionary<int, string> openWith = DictionaryHelper.Value(path);
+                    Dictionary<int, string> openWith = DictionaryHelper.GetDictionariesAndFiles(path);
                     if (path == "exit")
                         break;
                     Console.WriteLine("Выберите директорию или файл по номеру:");

@@ -2,11 +2,11 @@
 
 namespace altexsoft_lab_2020
 {
-    class GetEveryWord
+    class AllWords
     {
-        public static MatchCollection GetWords()
+        public static MatchCollection Get()
         {
-            string text = ReadText.GetText();
+            string text = Text.Get();
             string pattern = @"\w+'*\w*";
             Regex rgx = new Regex(pattern);
             return rgx.Matches(text);

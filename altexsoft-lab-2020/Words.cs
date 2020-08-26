@@ -4,12 +4,12 @@ namespace altexsoft_lab_2020
 {
     class Words
     {
-        public static void WordsCount()
+        public static void Count()
         {
-            var allWords = GetEveryWord.GetWords();
+            var allWords = AllWords.Get();
             if (allWords != null)
             {
-                var everyTenString = GetEvery10Word.GetTenWorlds(allWords);
+                var everyTenString = TenWord.Get(allWords);
                 Console.Clear();
                 Console.WriteLine(everyTenString);
                 Console.WriteLine($"Слов в тексте: {allWords.Count}");

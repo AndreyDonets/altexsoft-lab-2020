@@ -6,7 +6,7 @@ namespace altexsoft_lab_2020
 {
     public class DictionaryHelper
     {
-        public static Dictionary<int, string> Value(string path)
+        public static Dictionary<int, string> GetDictionariesAndFiles(string path)
         {
 
             Dictionary<int, string> openWith = new Dictionary<int, string>();

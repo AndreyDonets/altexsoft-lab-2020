@@ -3,9 +3,9 @@ using System.Text.RegularExpressions;
 
 namespace altexsoft_lab_2020
 {
-    class GetEvery10Word
+    class TenWord
     {
-        public static string GetTenWorlds(MatchCollection text)
+        public static string Get(MatchCollection text)
         {
             var ever = new List<string>();
             for (var index = 0; index < text.Count; index++)
