@@ -2,7 +2,7 @@
 
 namespace altexsoft_lab_2020
 {
-    class CarversHepler
+    class CutterHepler
     {
         public static string Cut(string text, string word)
         {
