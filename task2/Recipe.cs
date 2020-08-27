@@ -3,12 +3,12 @@ using task2.Reader;
 
 namespace task2
 {
-    class ChooseRecipe
+    class Recipe
     {
         public static void Chose(string path)
         {
             Console.Clear();
-            var recipes = SubdirectoryReed.Read(path);
+            var recipes = SubdirectoryReeder.Read(path);
             while (true)
             {
                 Console.WriteLine("Выберите рецепт:");
@@ -27,11 +27,11 @@ namespace task2
                     if (n <= recipes.Count && n >= 0)
                     {
                         n--;
-                        RecipeOverview.recipeOverview(recipes[n].Name);
+                        RecipeExplorer.Overview(recipes[n].Name);
                     }
                     else if (n == recipes.Count + 1)
                     {
-                        CreateRecipe.Create(recipes, path);
+                        RecipeMaker.Create(recipes, path);
                     }
                 }
                 else if (number == "exit")

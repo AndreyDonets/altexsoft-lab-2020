@@ -6,9 +6,9 @@ using task2.Models;
 
 namespace task2
 {
-    class ChangeSubdirectory
+    class SubdirectoryHelper
     {
-        public void ChangeSub(List<modelSubdirectory> recipes, string name, string path)
+        public void Add(List<modelSubdirectory> recipes, string name, string path)
         {
             recipes.Add(new modelSubdirectory { Name = name });
             File.WriteAllText($"{Environment.CurrentDirectory}\\{path}.json", JsonConvert.SerializeObject(recipes));

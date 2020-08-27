@@ -2,11 +2,11 @@
 
 namespace task2
 {
-    class ChoseCatalog
+    class Catalog
     {
-        public static void ChooseCatalog()
+        public static void Choose()
         {
-            var catalog = CatalogReed.Read();
+            var catalog = CatalogReeder.Read();
             while (true)
             {
                 Console.Clear();
@@ -25,13 +25,13 @@ namespace task2
                 switch (number)
                 {
                     case "1":
-                        ChooseRecipe.Chose("first");
+                        Recipe.Chose("first");
                         break;
                     case "2":
-                        ChooseRecipe.Chose("second");
+                        Recipe.Chose("second");
                         break;
                     case "3":
-                        ChooseRecipe.Chose("salad");
+                        Recipe.Chose("salad");
                         break;
                 }
             }

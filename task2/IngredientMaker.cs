@@ -4,15 +4,15 @@ using task2.Models;
 
 namespace task2
 {
-    class AddIngredient
+    class IngredientMaker
     {
-        public static void Add(List<modelIngredient> ingredients)
+        public static void Create(List<modelIngredient> ingredients)
         {
-            CreateIngredient ingredient = new CreateIngredient();
+            IngredientHelper ingredient = new IngredientHelper();
             Console.WriteLine("Введите название ингридиента");
             ingredient.Name = Console.ReadLine();
             if (!ingredients.Exists(x => x.Name.Equals(ingredient.Name, StringComparison.CurrentCultureIgnoreCase)))
-                ingredient.Create(ingredients);
+                ingredient.Add(ingredients);
             else
                 Console.WriteLine("Такой ингридиент уже есть в списке, нажмите что бы продолжить.");
             

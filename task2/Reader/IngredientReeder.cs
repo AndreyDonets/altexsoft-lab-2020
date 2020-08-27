@@ -6,7 +6,7 @@ using task2.Models;
 
 namespace task2.Reader
 {
-    class IngredientReed
+    class IngredientReeder
     {
         private static readonly string INGREDIENTS_PATH = $"{Environment.CurrentDirectory}\\ingredients.json";
         public static List<modelIngredient> Read()

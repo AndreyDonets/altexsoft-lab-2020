@@ -1,18 +1,17 @@
 ﻿using Newtonsoft.Json;
 using System;
-using System.Collections.Generic;
 using System.IO;
 using task2.Models;
 
 namespace task2.Reader
 {
-    class SubdirectoryReed
+    class RecipeReeder
     {
-        public static List<modelSubdirectory> Read(string PATH)
+        public static modelRecipe Read(string PATH)
         {
             try
             {
-                return JsonConvert.DeserializeObject<List<modelSubdirectory>>(File.ReadAllText($"{Environment.CurrentDirectory}\\{PATH}.json"));
+                return JsonConvert.DeserializeObject<modelRecipe>(File.ReadAllText($"{Environment.CurrentDirectory}\\{PATH}.json"));
             }
             catch (Exception ex)
             {

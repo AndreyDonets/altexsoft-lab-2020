@@ -6,9 +6,9 @@ using task2.Models;
 
 namespace task2
 {
-    class CreateIngredient : modelIngredient
+    class IngredientHelper : modelIngredient
     {
-        public void Create(List<modelIngredient> ingredients)
+        public void Add(List<modelIngredient> ingredients)
         {
             ingredients.Add(new modelIngredient { Name = Name });
             File.WriteAllText($"{Environment.CurrentDirectory}\\ingredients.json", JsonConvert.SerializeObject(ingredients));

@@ -3,11 +3,11 @@ using task2.Reader;
 
 namespace task2
 {
-    class RecipeOverview
+    class RecipeExplorer
     {
-        public static void recipeOverview(string path)
+        public static void Overview(string path)
         {
-            var recipe = RecipeReed.Read(path);
+            var recipe = RecipeReeder.Read(path);
             while (true)
             {
                 Console.Clear();

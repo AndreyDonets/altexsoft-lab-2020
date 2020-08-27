@@ -4,7 +4,7 @@ using task2.Models;
 
 namespace task2
 {
-    class CreateRecipe
+    class RecipeMaker
     {
         public static void Create(List<modelSubdirectory> recipes, string path)
         {
@@ -17,17 +17,17 @@ namespace task2
                 {
                     break;
                 }
-                if (!recipes.Exists(x => x.Name.Equals(name, StringComparison.CurrentCultureIgnoreCase)) 
+                if (!recipes.Exists(x => x.Name.Equals(name, StringComparison.CurrentCultureIgnoreCase)))
                 {
-                    CreateRecipeFinish recipe = new CreateRecipeFinish();
+                    RecipeHelper recipe = new RecipeHelper();
                     Console.WriteLine("Опишите рецепт");
                     recipe.Name = name;
                     recipe.Description = Console.ReadLine();
-                    recipe.Ingredients = ChooseIngredient.Choose();
+                    recipe.Ingredients = Ingredient.Choose();
                     recipe.Cooking = CookingSteps.Cook();
-                    ChangeSubdirectory changeSubdirectory = new ChangeSubdirectory();
-                    recipe.Create(recipe);
-                    changeSubdirectory.ChangeSub(recipes, recipe.Name, path);
+                    SubdirectoryHelper changeSubdirectory = new SubdirectoryHelper();
+                    recipe.Add(recipe);
+                    changeSubdirectory.Add(recipes, recipe.Name, path);
                     Console.Clear();
                     break;
                 }

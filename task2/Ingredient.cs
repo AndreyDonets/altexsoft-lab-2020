@@ -4,11 +4,11 @@ using task2.Reader;
 
 namespace task2
 {
-    class ChooseIngredient
+    class Ingredient
     {
          public static List<string> Choose()
         {
-            var ingredients = IngredientReed.Read();
+            var ingredients = IngredientReeder.Read();
             List<string> s = new List<string>();
             while (true)
             {
@@ -35,7 +35,7 @@ namespace task2
                     }
                     else if (n == ingredients.Count + 1)
                     {
-                        AddIngredient.Add(ingredients);
+                        IngredientMaker.Create(ingredients);
                         Console.WriteLine("Ингридиент добавлен в список");
                     }
                 }

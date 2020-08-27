@@ -5,7 +5,7 @@ using System.IO;
 
 namespace task2
 {
-    class CatalogReed
+    class CatalogReeder
     {
         private static readonly string CATALOG_PATH = $"{Environment.CurrentDirectory}\\catalog.json";
         public static List<modelCatalog> Read()
