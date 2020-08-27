@@ -11,7 +11,7 @@ namespace altexsoft_lab_2020
             Console.WriteLine("Введите символ/слово для удаления");
             string word = Console.ReadLine();
             Console.Clear();
-            var result = CarversHepler.Cut(text, word);
+            var result = Hepler.Cut(text, word);
             Console.WriteLine(string.IsNullOrEmpty(result) ? (word + " в тексте нет") : result);
             Console.WriteLine("Нажмите чтобы продолжить");
             Console.ReadLine();
