@@ -8,11 +8,11 @@ namespace task2.Reader
 {
     class SubdirectoryReeder
     {
-        public static List<modelSubdirectory> Read(string PATH)
+        public static List<ModelSubdirectory> Read(string PATH)
         {
             try
             {
-                return JsonConvert.DeserializeObject<List<modelSubdirectory>>(File.ReadAllText($"{Environment.CurrentDirectory}\\{PATH}.json"));
+                return JsonConvert.DeserializeObject<List<ModelSubdirectory>>(File.ReadAllText($"{Environment.CurrentDirectory}\\{PATH}.json"));
             }
             catch (Exception ex)
             {

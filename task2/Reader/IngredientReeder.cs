@@ -9,12 +9,12 @@ namespace task2.Reader
     class IngredientReeder
     {
         private static readonly string INGREDIENTS_PATH = $"{Environment.CurrentDirectory}\\ingredients.json";
-        public static List<modelIngredient> Read()
+        public static List<ModelIngredient> Read()
         {
             try
             {
                 
-                return JsonConvert.DeserializeObject<List<modelIngredient>>(File.ReadAllText(INGREDIENTS_PATH));
+                return JsonConvert.DeserializeObject<List<ModelIngredient>>(File.ReadAllText(INGREDIENTS_PATH));
             }
             catch (Exception ex)
             {

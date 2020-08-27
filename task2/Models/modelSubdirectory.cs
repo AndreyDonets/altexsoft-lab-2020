@@ -1,6 +1,6 @@
 ﻿namespace task2.Models
 {
-    class modelSubdirectory
+    class ModelSubdirectory
     {
         public string Name { get; set; }
     }

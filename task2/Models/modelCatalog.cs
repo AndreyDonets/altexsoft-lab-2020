@@ -1,6 +1,6 @@
 ﻿namespace task2
 {
-    class modelCatalog
+    class ModelCatalog
     {
         public string Name { get; set; }
     }

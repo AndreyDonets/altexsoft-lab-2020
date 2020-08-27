@@ -6,7 +6,7 @@ namespace task2
 {
     class IngredientMaker
     {
-        public static void Create(List<modelIngredient> ingredients)
+        public static void Create(List<ModelIngredient> ingredients)
         {
             IngredientHelper ingredient = new IngredientHelper();
             Console.WriteLine("Введите название ингридиента");

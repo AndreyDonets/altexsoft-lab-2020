@@ -8,9 +8,9 @@ namespace task2
 {
     class SubdirectoryHelper
     {
-        public void Add(List<modelSubdirectory> recipes, string name, string path)
+        public void Add(List<ModelSubdirectory> recipes, string name, string path)
         {
-            recipes.Add(new modelSubdirectory { Name = name });
+            recipes.Add(new ModelSubdirectory { Name = name });
             File.WriteAllText($"{Environment.CurrentDirectory}\\{path}.json", JsonConvert.SerializeObject(recipes));
         }
     }

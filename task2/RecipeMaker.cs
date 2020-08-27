@@ -6,7 +6,7 @@ namespace task2
 {
     class RecipeMaker
     {
-        public static void Create(List<modelSubdirectory> recipes, string path)
+        public static void Create(List<ModelSubdirectory> recipes, string path)
         {
             Console.WriteLine("Придумайте название рецепта, exit для выхода");
 

@@ -5,9 +5,9 @@ using task2.Models;
 
 namespace task2
 {
-    class RecipeHelper : modelRecipe
+    class RecipeHelper : ModelRecipe
     {
-        public void Add(modelRecipe recipe)
+        public void Add(ModelRecipe recipe)
         {
             File.WriteAllText($"{Environment.CurrentDirectory}\\{recipe.Name}.json", JsonConvert.SerializeObject(recipe));       
         }

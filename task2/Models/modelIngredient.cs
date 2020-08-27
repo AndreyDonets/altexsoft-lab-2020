@@ -1,6 +1,6 @@
 ﻿namespace task2.Models
 {
-    class modelIngredient
+    class ModelIngredient
     {
         public string Name { get; set; }
     }

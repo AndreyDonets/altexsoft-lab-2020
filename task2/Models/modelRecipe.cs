@@ -2,7 +2,7 @@
 
 namespace task2.Models
 {
-    class modelRecipe
+    class ModelRecipe
     {
         public string Name { get; set; }
         public string Description { get; set; }
