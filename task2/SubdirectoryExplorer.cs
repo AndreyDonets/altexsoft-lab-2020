@@ -1,14 +1,16 @@
 ﻿using System;
-using task2.Reader;
+using System.Collections.Generic;
 
 namespace task2
 {
-    class Recipe
+    class SubdirectoryExplorer
     {
         public static void Chose(string path)
         {
             Console.Clear();
-            var recipes = SubdirectoryReeder.Read(path);
+            var reader = new Reader<List<Models.Subdirectory>>();
+            reader.Path(path);
+            var recipes = reader.Read();
             while (true)
             {
                 Console.WriteLine("Выберите рецепт:");
@@ -21,8 +23,7 @@ namespace task2
                 Console.WriteLine("exit для выхода из программы");
                 string number = Console.ReadLine();
                 Console.Clear();
-                int n;
-                if (int.TryParse(number, out n))
+                if (int.TryParse(number, out int n))
                 {
                     if (n <= recipes.Count && n >= 0)
                     {

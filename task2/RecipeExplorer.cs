@@ -1,5 +1,4 @@
 ﻿using System;
-using task2.Reader;
 
 namespace task2
 {
@@ -7,7 +6,9 @@ namespace task2
     {
         public static void Overview(string path)
         {
-            var recipe = RecipeReeder.Read(path);
+            var reader = new Reader<Models.Recipe>();
+            reader.Path(path);
+            var recipe = reader.Read();
             while (true)
             {
                 Console.Clear();

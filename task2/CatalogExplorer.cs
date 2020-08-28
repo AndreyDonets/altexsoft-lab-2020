@@ -1,12 +1,15 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace task2
 {
-    class Catalog
+    class CatalogExplorer
     {
         public static void Choose()
-        {
-            var catalog = CatalogReeder.Read();
+        { 
+            var reader = new Reader<List<Models.Catalog>>();
+            reader.Path("catalog");
+            List<Models.Catalog> catalog = reader.Read();
             while (true)
             {
                 Console.Clear();
@@ -25,13 +28,13 @@ namespace task2
                 switch (number)
                 {
                     case "1":
-                        Recipe.Chose("first");
+                        SubdirectoryExplorer.Chose("first");
                         break;
                     case "2":
-                        Recipe.Chose("second");
+                        SubdirectoryExplorer.Chose("second");
                         break;
                     case "3":
-                        Recipe.Chose("salad");
+                        SubdirectoryExplorer.Chose("salad");
                         break;
                 }
             }

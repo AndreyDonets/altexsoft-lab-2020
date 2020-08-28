@@ -4,7 +4,7 @@
     {
         static void Main(string[] args)
         {
-            Catalog.Choose();
+            CatalogExplorer.Choose();
         }
     }
 }

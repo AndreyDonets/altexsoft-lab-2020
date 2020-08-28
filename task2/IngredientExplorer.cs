@@ -1,14 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
-using task2.Reader;
 
 namespace task2
 {
-    class Ingredient
+    class IngredientExplorer
     {
          public static List<string> Choose()
         {
-            var ingredients = IngredientReeder.Read();
+            var reader = new Reader<List<Models.Ingredient>>();
+            reader.Path("ingredients");
+            var ingredients = reader.Read();
             List<string> s = new List<string>();
             while (true)
             {

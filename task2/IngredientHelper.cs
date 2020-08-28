@@ -6,11 +6,11 @@ using task2.Models;
 
 namespace task2
 {
-    class IngredientHelper : ModelIngredient
+    class IngredientHelper : Models.Ingredient
     {
-        public void Add(List<ModelIngredient> ingredients)
+        public void Add(List<Models.Ingredient> ingredients)
         {
-            ingredients.Add(new ModelIngredient { Name = Name });
+            ingredients.Add(new Models.Ingredient { Name = Name });
             File.WriteAllText($"{Environment.CurrentDirectory}\\ingredients.json", JsonConvert.SerializeObject(ingredients));
         }
     }
