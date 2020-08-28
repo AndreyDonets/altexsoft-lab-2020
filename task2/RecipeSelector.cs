@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace task2
 {
-    class Recipe
+    class RecipeSelector
     {
         public static void Chose(string path)
         {

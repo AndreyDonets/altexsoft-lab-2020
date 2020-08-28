@@ -23,7 +23,7 @@ namespace task2
                     Console.WriteLine("Опишите рецепт");
                     recipe.Name = name;
                     recipe.Description = Console.ReadLine();
-                    recipe.Ingredients = Ingredient.Choose();
+                    recipe.Ingredients = IngredientSelector.Choose();
                     recipe.Cooking = CookingSteps.Cook();
                     SubdirectoryHelper changeSubdirectory = new SubdirectoryHelper();
                     recipe.Add(recipe);

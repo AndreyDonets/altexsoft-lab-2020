@@ -28,13 +28,13 @@ namespace task2
                 switch (number)
                 {
                     case "1":
-                        Recipe.Chose("first");
+                        RecipeSelector.Chose("first");
                         break;
                     case "2":
-                        Recipe.Chose("second");
+                        RecipeSelector.Chose("second");
                         break;
                     case "3":
-                        Recipe.Chose("salad");
+                        RecipeSelector.Chose("salad");
                         break;
                 }
             }
