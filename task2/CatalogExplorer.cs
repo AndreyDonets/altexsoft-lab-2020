@@ -7,9 +7,9 @@ namespace task2
     {
         public static void Choose()
         { 
-            var reader = new Reader<List<Models.Catalog>>();
+            var reader = new Reader<List<Models.Json>>();
             reader.Path("catalog");
-            List<Models.Catalog> catalog = reader.Read();
+            var catalog = reader.Read();
             while (true)
             {
                 Console.Clear();
@@ -28,13 +28,13 @@ namespace task2
                 switch (number)
                 {
                     case "1":
-                        SubdirectoryExplorer.Chose("first");
+                        Recipe.Chose("first");
                         break;
                     case "2":
-                        SubdirectoryExplorer.Chose("second");
+                        Recipe.Chose("second");
                         break;
                     case "3":
-                        SubdirectoryExplorer.Chose("salad");
+                        Recipe.Chose("salad");
                         break;
                 }
             }

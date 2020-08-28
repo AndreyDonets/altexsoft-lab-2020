@@ -7,7 +7,7 @@ namespace task2
     {
         public static List<string> Cook()
         {
-            List<string> s = new List<string>();
+            List<string> steps = new List<string>();
             int i = 0;
             while (true)
             {
@@ -19,9 +19,9 @@ namespace task2
                 {
                     break;
                 }
-                s.Add(i + " " + step);
+                steps.Add(i + " " + step);
             }
-            return s;
+            return steps;
         }
     }
 }

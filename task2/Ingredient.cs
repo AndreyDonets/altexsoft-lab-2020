@@ -3,11 +3,11 @@ using System.Collections.Generic;
 
 namespace task2
 {
-    class IngredientExplorer
+    class Ingredient
     {
          public static List<string> Choose()
         {
-            var reader = new Reader<List<Models.Ingredient>>();
+            var reader = new Reader<List<Models.Json>>();
             reader.Path("ingredients");
             var ingredients = reader.Read();
             List<string> s = new List<string>();

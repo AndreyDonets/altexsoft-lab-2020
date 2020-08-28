@@ -3,12 +3,12 @@ using System.Collections.Generic;
 
 namespace task2
 {
-    class SubdirectoryExplorer
+    class Recipe
     {
         public static void Chose(string path)
         {
             Console.Clear();
-            var reader = new Reader<List<Models.Subdirectory>>();
+            var reader = new Reader<List<Models.Json>>();
             reader.Path(path);
             var recipes = reader.Read();
             while (true)

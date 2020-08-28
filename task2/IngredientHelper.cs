@@ -2,15 +2,14 @@
 using System;
 using System.Collections.Generic;
 using System.IO;
-using task2.Models;
 
 namespace task2
 {
-    class IngredientHelper : Models.Ingredient
+    class IngredientHelper : Models.Json
     {
-        public void Add(List<Models.Ingredient> ingredients)
+        public void Add(List<Models.Json> ingredients)
         {
-            ingredients.Add(new Models.Ingredient { Name = Name });
+            ingredients.Add(new Models.Json { Name = Name });
             File.WriteAllText($"{Environment.CurrentDirectory}\\ingredients.json", JsonConvert.SerializeObject(ingredients));
         }
     }

@@ -6,7 +6,7 @@ namespace task2
 {
     class RecipeMaker
     {
-        public static void Create(List<Subdirectory> recipes, string path)
+        public static void Create(List<Models.Json> recipes, string path)
         {
             Console.WriteLine("Придумайте название рецепта, exit для выхода");
 
@@ -23,7 +23,7 @@ namespace task2
                     Console.WriteLine("Опишите рецепт");
                     recipe.Name = name;
                     recipe.Description = Console.ReadLine();
-                    recipe.Ingredients = IngredientExplorer.Choose();
+                    recipe.Ingredients = Ingredient.Choose();
                     recipe.Cooking = CookingSteps.Cook();
                     SubdirectoryHelper changeSubdirectory = new SubdirectoryHelper();
                     recipe.Add(recipe);
