@@ -1,51 +1,49 @@
 ﻿using System;
 using System.Collections.Generic;
+using task2.Helpers;
+using task2.Model;
 
 namespace task2
 {
     class IngredientSelector
     {
-         public static List<string> Choose()
+        public static List<string> Choose(List<Ingredient> ingredients)
         {
-            var reader = new Reader<List<Models.Json>>();
-            reader.Path("ingredients");
-            var ingredients = reader.Read();
-            List<string> s = new List<string>();
+            List<string> recipeIngredients = new List<string>();
             while (true)
             {
-                Console.WriteLine("Выберите ингридиенты:");
-                int i = 0;
-                for (; i < ingredients.Count; i++)
+                IngredientHelper.Show(ingredients, recipeIngredients.Count);
+                string number = null;
+                while (string.IsNullOrWhiteSpace(number))
                 {
-                    Console.WriteLine($"{i + 1}\t{ingredients[i].Name}");
+                    number = Console.ReadLine();
+                    if (string.IsNullOrWhiteSpace(number))
+                    {
+                        Console.Clear();
+                        Console.WriteLine("Вы не выбрали ингридиент.");
+                        IngredientHelper.Show(ingredients, recipeIngredients.Count);
+                    }
                 }
-                Console.WriteLine($"{i + 1}\tдобавить новый ингридиент");
-                Console.WriteLine("exit для выхода");
-                string number = Console.ReadLine();
                 Console.Clear();
-                int n = -1;
-                if (int.TryParse(number, out n))
-                {
-                    if (n <= ingredients.Count)
-                    {
-                        n--;
-                        Console.WriteLine("Введите количество");
-                        string count = Console.ReadLine();
-                        s.Add(ingredients[n].Name + " " + count);
-                        ingredients.RemoveAt(n);
-                    }
-                    else if (n == ingredients.Count + 1)
-                    {
-                        IngredientMaker.Create(ingredients);
-                        Console.WriteLine("Ингридиент добавлен в список");
-                    }
-                }
-                else if (number == "exit")
-                {
+
+                if (recipeIngredients.Count > 0 && number == "exit")
                     break;
+                var numberIngredient = ParseHelper.Parse(number);
+                if (numberIngredient >= 0 && numberIngredient <= ingredients.Count)
+                {
+                    numberIngredient--;
+                    Console.WriteLine("Введите количество");
+                    string count = Console.ReadLine();
+                    recipeIngredients.Add(ingredients[numberIngredient].Name + " " + count);
+                    ingredients.RemoveAt(numberIngredient);
+                }
+                else if (numberIngredient == ingredients.Count + 1)
+                {
+                    ingredients = IngredientMaker.Create(ingredients);
+                    Console.WriteLine("Ингридиент добавлен в список ингридиентов");
                 }
             }
-            return s;
+            return recipeIngredients;
         }
     }
 }

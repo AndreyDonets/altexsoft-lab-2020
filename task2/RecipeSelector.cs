@@ -1,45 +1,42 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
+using task2.Model;
 
 namespace task2
 {
     class RecipeSelector
     {
-        public static void Chose(string path)
+        public static Recipe Chose(List<Recipe> recipe)
         {
             Console.Clear();
-            var reader = new Reader<List<Models.Json>>();
-            reader.Path(path);
-            var recipes = reader.Read();
-            while (true)
+            Console.WriteLine("Выберите рецепт:");
+            int i = 0;
+            for (; i < recipe.Count; i++)
             {
-                Console.WriteLine("Выберите рецепт:");
-                int i = 0;
-                for (; i < recipes.Count; i++)
-                {
-                    Console.WriteLine($"{i + 1}\t{recipes[i].Name}");
-                }
-                Console.WriteLine($"{i + 1}\tдля создания нового рецепта");
-                Console.WriteLine("exit для выхода из программы");
-                string number = Console.ReadLine();
-                Console.Clear();
-                if (int.TryParse(number, out int n))
-                {
-                    if (n <= recipes.Count && n >= 0)
-                    {
-                        n--;
-                        RecipeExplorer.Overview(recipes[n].Name);
-                    }
-                    else if (n == recipes.Count + 1)
-                    {
-                        RecipeMaker.Create(recipes, path);
-                    }
-                }
-                else if (number == "exit")
-                {
-                    break;
-                }
+                Console.WriteLine($"{i + 1}\t{recipe[i].Name}");
             }
+
+            Console.WriteLine($"{i + 1}\tдля создания нового рецепта");
+            Console.WriteLine($"back - вернуться к выбору категорий");
+            string number = Console.ReadLine();
+            if (number == "back")
+                Start.Back(true);
+            Console.Clear();
+            if (int.TryParse(number, out int n))
+            {
+                if (n <= recipe.Count && n >= 0)
+                {
+                    RecipeExplorer.Overview(recipe[n - 1]);
+                    return null;
+                }
+                else if (n == recipe.Count + 1)
+                {
+                    return new Recipe();
+                }
+
+            }
+            return null;
         }
     }
 }

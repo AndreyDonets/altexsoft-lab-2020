@@ -1,16 +1,27 @@
-﻿using Newtonsoft.Json;
-using System;
+﻿using System;
 using System.Collections.Generic;
-using System.IO;
+using System.Text;
+using task2.Model;
 
 namespace task2
 {
-    class IngredientHelper : Models.Json
+    class IngredientHelper
     {
-        public void Add(List<Models.Json> ingredients)
+        public static void Show(List<Ingredient> ingredients, int count)
         {
-            ingredients.Add(new Models.Json { Name = Name });
-            File.WriteAllText($"{Environment.CurrentDirectory}\\ingredients.json", JsonConvert.SerializeObject(ingredients));
+            int i = 1;
+            Console.WriteLine("Выберите ингридиенты:");
+            foreach (var ingredient in ingredients)
+            {
+                Console.WriteLine($"{i}\t{ingredient.Name}");
+                i++;
+            }
+
+            Console.WriteLine($"{i}\tдобавить новый ингридиент");
+            if (count > 0)
+            {
+                Console.WriteLine($"exit - закончить с выбором ингридиентов");
+            }
         }
     }
 }

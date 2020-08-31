@@ -1,14 +1,12 @@
 ﻿using System;
+using task2.Model;
 
 namespace task2
 {
     class RecipeExplorer
     {
-        public static void Overview(string path)
+        public static void Overview(Recipe recipe)
         {
-            var reader = new Reader<Models.Recipe>();
-            reader.Path(path);
-            var recipe = reader.Read();
             while (true)
             {
                 Console.Clear();
@@ -23,13 +21,13 @@ namespace task2
                     Console.WriteLine(i + " " + item);
                 }
                 Console.WriteLine($"\nШаги приготовления:");
-                foreach (var item in recipe.Cooking)
+                foreach (var item in recipe.CookingSteps)
                 {
                     Console.WriteLine(item);
                 }
-                Console.WriteLine("\nexit для выбора другого рецепта");
+                Console.WriteLine("\nback для выбора другого рецепта");
                 string s = Console.ReadLine();
-                if (s == "exit")
+                if (s == "back")
                 {
                     break;
                 }

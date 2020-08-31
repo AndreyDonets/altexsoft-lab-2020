@@ -1,24 +1,22 @@
 ﻿using Newtonsoft.Json;
 using System;
-using System.Collections.Generic;
 using System.IO;
-using System.Text;
 
 namespace task2
 {
     public class Reader<T>
     {
-        public string path;
-        public void Path(string path)
+        private readonly string _path;
+        public Reader(string path)
         {
-            path = $"{Environment.CurrentDirectory}\\{path}.json";
+            _path = $"{Environment.CurrentDirectory}\\{path}.json";
         }
         public T Read()
         {
             try
             {
 
-                return JsonConvert.DeserializeObject<T>(File.ReadAllText(path));
+                return JsonConvert.DeserializeObject<T>(File.ReadAllText(_path));
             }
             catch (Exception ex)
             {
