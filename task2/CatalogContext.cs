@@ -12,9 +12,10 @@ namespace task2
 	{
 		public CatalogContext()
 		{
-			Categories = new FileReader<List<Category>>("categories").Read();
-			Recipes = new FileReader<List<Recipe>>("recipes").Read();
-			Ingredients = new FileReader<List<Ingredient>>("ingredients").Read();
+			FileReader fileReader = new FileReader();
+			fileReader.Read(Categories);
+			fileReader.Read(Recipes);
+			fileReader.Read(Ingredients);
 		}
 
 		public List<Category> Categories { get; }
@@ -23,11 +24,9 @@ namespace task2
 
 		public void SaveChanges()
 		{
-
-			FileSaver<List<Recipe>>.Save(Recipes, "recipes");
-			FileSaver<List<Ingredient>>.Save(Ingredients, "ingredients");
-
-			// Реализовать перезапись файлов в соответствии с нужным листом Категории -  $"{Environment.CurrentDirectory}/category.json";
+			FileSaver fileSaver = new FileSaver();
+			fileSaver.Save(Recipes);
+			fileSaver.Save(Ingredients);
 		}
 
 		public void Dispose()

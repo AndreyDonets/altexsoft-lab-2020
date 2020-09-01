@@ -29,17 +29,5 @@ namespace task2.Repositories
 		{
 			return _context.Categories.OrderBy(c => c.Id).ToList();
 		}
-
-		public IEnumerable<Category> GetAllFilled()
-		{
-			var categories = GetAll().ToList();
-
-			categories
-				.ForEach(category => category.Recipes
-					.AddRange(_context.Recipes
-						.Where(r => r.CategoryId == category.Id)));
-
-			return categories.OrderBy(c => c.Id).ToList();
-		}
 	}
 }

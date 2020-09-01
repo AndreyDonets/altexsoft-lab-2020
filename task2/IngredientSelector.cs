@@ -7,9 +7,9 @@ namespace task2
 {
     class IngredientSelector
     {
-        public static List<string> Choose(List<Ingredient> ingredients)
+        public static List<RecipeIngredients> Choose(List<Ingredient> ingredients)
         {
-            List<string> recipeIngredients = new List<string>();
+            List<RecipeIngredients> recipeIngredients = new List<RecipeIngredients>();
             while (true)
             {
                 IngredientHelper.Show(ingredients, recipeIngredients.Count);
@@ -34,8 +34,7 @@ namespace task2
                     numberIngredient--;
                     Console.WriteLine("Введите количество");
                     string count = Console.ReadLine();
-                    recipeIngredients.Add(ingredients[numberIngredient].Name + " " + count);
-                    ingredients.RemoveAt(numberIngredient);
+                    recipeIngredients.Add( new RecipeIngredients() { Id = numberIngredient, Quantity = "- " + count });
                 }
                 else if (numberIngredient == ingredients.Count + 1)
                 {

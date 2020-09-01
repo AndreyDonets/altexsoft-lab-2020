@@ -1,11 +1,12 @@
 ﻿using System;
+using System.Collections.Generic;
 using task2.Model;
 
 namespace task2
 {
     class RecipeExplorer
     {
-        public static void Overview(Recipe recipe)
+        public static void Overview(Recipe recipe, List<Ingredient> ingredients)
         {
             while (true)
             {
@@ -18,7 +19,7 @@ namespace task2
                 foreach (var item in recipe.Ingredients)
                 {
                     i++;
-                    Console.WriteLine(i + " " + item);
+                    Console.WriteLine(i + " " + ingredients[item.Id].Name + " " + item.Quantity);
                 }
                 Console.WriteLine($"\nШаги приготовления:");
                 foreach (var item in recipe.CookingSteps)

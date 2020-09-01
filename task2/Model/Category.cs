@@ -7,7 +7,5 @@ namespace task2.Model
 	public class Category
 		: BaseEntity
 	{
-		[JsonIgnore]
-		public List<Recipe> Recipes { get; set; } = new List<Recipe>();
 	}
 }

@@ -1,18 +1,23 @@
 ﻿using Newtonsoft.Json;
+using Newtonsoft.Json.Serialization;
 using System;
 using System.Collections.Generic;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using task2.Model;
 
 namespace task2.Helpers
 {
-    class FileSaver<T>
+    class FileSaver
     {
-        public static void Save(T file, string name)
+        public void Save(List<Recipe> file)
         {
-            File.WriteAllText($"{Environment.CurrentDirectory}\\Data\\{name}.json", JsonConvert.SerializeObject(file));
+            File.WriteAllText($"{Environment.CurrentDirectory}\\Data\\recipes.json", JsonConvert.SerializeObject(file,
+        Formatting.Indented, new JsonSerializerSettings { ContractResolver = new CamelCasePropertyNamesContractResolver() }));
+        }
+        public void Save(List<Ingredient> file)
+        {
+            File.WriteAllText($"{Environment.CurrentDirectory}\\Data\\ingredients.json", JsonConvert.SerializeObject(file,
+        Formatting.Indented, new JsonSerializerSettings { ContractResolver = new CamelCasePropertyNamesContractResolver() }));
         }
     }
 }

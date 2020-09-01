@@ -18,7 +18,7 @@ namespace task2
         private static bool _back { get; set; }
         public static void GetAll(UnitOfWork unitOfWork)
         {
-            _categories = unitOfWork.Categories.GetAllFilled().ToList();
+            _categories = unitOfWork.Categories.GetAll().ToList();
             _recipes = unitOfWork.Recipes.GetAll().ToList();
             _ingredients = unitOfWork.Ingredients.GetAll().ToList();
         }
@@ -49,7 +49,7 @@ namespace task2
                     if (categoryId == -1)
                         continue;
                 }
-                Recipe newRecipe = RecipeSelector.Chose(_recipes.Where(c => c.CategoryId == categoryId).ToList());
+                Recipe newRecipe = RecipeSelector.Chose(_recipes.Where(c => c.CategoryId == categoryId).ToList(), _ingredients);
                 if (_back)
                     categoryId = -1;
                 if (newRecipe != null)

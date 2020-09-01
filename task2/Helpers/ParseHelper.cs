@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace task2.Helpers
+﻿namespace task2.Helpers
 {
     class ParseHelper
     {

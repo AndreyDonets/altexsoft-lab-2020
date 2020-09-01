@@ -7,7 +7,7 @@ namespace task2
 {
     class RecipeSelector
     {
-        public static Recipe Chose(List<Recipe> recipe)
+        public static Recipe Chose(List<Recipe> recipe, List<Ingredient> ingredients)
         {
             Console.Clear();
             Console.WriteLine("Выберите рецепт:");
@@ -27,7 +27,7 @@ namespace task2
             {
                 if (n <= recipe.Count && n >= 0)
                 {
-                    RecipeExplorer.Overview(recipe[n - 1]);
+                    RecipeExplorer.Overview(recipe[n - 1], ingredients);
                     return null;
                 }
                 else if (n == recipe.Count + 1)
