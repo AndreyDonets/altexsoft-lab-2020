@@ -8,8 +8,8 @@ namespace task2
 	public class CatalogContext 
 		: IDisposable
 	{
-		FileManager fileManager;
-		JsonConverter jsonConverter;
+		FileManager fileManager = new FileManager();
+		JsonConverter jsonConverter = new JsonConverter();
 		public CatalogContext()
 		{
 			Categories = jsonConverter.DeserializeCategories(fileManager.Read("categories"));
