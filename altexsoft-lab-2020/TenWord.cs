@@ -1,0 +1,22 @@
+﻿using System.Collections.Generic;
+using System.Text.RegularExpressions;
+
+namespace altexsoft_lab_2020
+{
+    class TenWord
+    {
+        public static string Get(MatchCollection text)
+        {
+            var ever = new List<string>();
+            for (var index = 0; index < text.Count; index++)
+            {
+                if (index >= 1 && index % 10 == 0)
+                {
+                    ever.Add(text[index - 1].Value);
+                }
+            }
+
+            return string.Join(", ", ever.ToArray());
+        }
+    }
+}

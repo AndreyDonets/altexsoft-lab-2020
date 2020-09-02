@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30320.27
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "altexsoft-lab-2020", "altexsoft-lab-2020.csproj", "{3E4FA3BB-9BF7-4A69-A21C-7A6D47CEDDEC}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{3E4FA3BB-9BF7-4A69-A21C-7A6D47CEDDEC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3E4FA3BB-9BF7-4A69-A21C-7A6D47CEDDEC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3E4FA3BB-9BF7-4A69-A21C-7A6D47CEDDEC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3E4FA3BB-9BF7-4A69-A21C-7A6D47CEDDEC}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {605151B3-8E3C-4799-85A3-594F378D9AC9}
+	EndGlobalSection
+EndGlobal
