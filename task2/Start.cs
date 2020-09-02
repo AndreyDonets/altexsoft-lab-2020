@@ -8,20 +8,18 @@ using task2.Repositories;
 
 namespace task2
 {
-    class Start
+    public class Start
     {
-        private static List<Category> _categories { get; set; }
-        private static List<Recipe> _recipes { get; set; }
-        private static List<Ingredient> _ingredients { get; set; }
-        private static List<Ingredient> _ingredient = new List<Ingredient>();
+        private readonly UnitOfWork _unitOfWork;
+        public Start(UnitOfWork unitOfWork)
+        {
+            _unitOfWork = unitOfWork;
+        }
+        private List<Category> _categories { get; set; }
+        private List<Recipe> _recipes { get; set; }
+        private List<Ingredient> _ingredients { get; set; }
         private static bool _exit { get; set; }
         private static bool _back { get; set; }
-        public static void GetAll(UnitOfWork unitOfWork)
-        {
-            _categories = unitOfWork.Categories.GetAll().ToList();
-            _recipes = unitOfWork.Recipes.GetAll().ToList();
-            _ingredients = unitOfWork.Ingredients.GetAll().ToList();
-        }
         public static void Back(bool answer)
         {
             _back = answer;
@@ -30,19 +28,20 @@ namespace task2
         {
             _exit = answer;
         }
-        public static void AddIngredient(Ingredient item)
+        public void GetAll(UnitOfWork unitOfWork)
         {
-            _ingredient.Add(item);
+            _categories = unitOfWork.Categories.GetAll().ToList();
+            _recipes = unitOfWork.Recipes.GetAll().ToList();
+            _ingredients = unitOfWork.Ingredients.GetAll().ToList();
         }
 
-
-        public static void Go()
+        public void Go()
         {
-            var unitOfWork = new UnitOfWork();
-            GetAll(unitOfWork);
+            GetAll(_unitOfWork);
             int categoryId = -1;
             while (!_exit)
             {
+                int ingredientsCount = _ingredients.Count;
                 if (categoryId == -1)
                 {
                     categoryId = CatalogExplorer.Choose(_categories);
@@ -60,16 +59,13 @@ namespace task2
                         newRecipe.CategoryId = categoryId;
                         newRecipe.Id = _recipes.Count;
                         newRecipe.Ingredients = IngredientSelector.Choose(_ingredients);
-                        int ingredientId = _ingredients.Count();
-                        foreach (var item in _ingredient)
+                        for (int i = ingredientsCount -1; i < _ingredients.Count; i++)
                         {
-                            item.Id = ingredientId;
-                            unitOfWork.Ingredients.Create(item);
-                            ingredientId++;
+                            _unitOfWork.Ingredients.Create(_ingredients[i]);
                         }
-                        unitOfWork.Recipes.Create(newRecipe);
+                        _unitOfWork.Recipes.Create(newRecipe);
                         _recipes.Add(newRecipe);
-                        unitOfWork.Save();
+                        _unitOfWork.Save();
                         categoryId =-1;
                     }
                 }

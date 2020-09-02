@@ -4,7 +4,8 @@
     {
         static void Main(string[] args)
         {
-            Start.Go();
+            Start start = new Start(new UnitOfWork());
+            start.Go();
         }
     }
 }

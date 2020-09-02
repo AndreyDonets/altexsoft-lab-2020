@@ -1,21 +1,20 @@
 ﻿using task2.Helpers;
 using task2.Model;
-using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
-using System.IO;
 
 namespace task2
 {
 	public class CatalogContext 
 		: IDisposable
 	{
+		FileManager fileManager;
+		JsonConverter jsonConverter;
 		public CatalogContext()
 		{
-			FileReader fileReader = new FileReader();
-			fileReader.Read(Categories);
-			fileReader.Read(Recipes);
-			fileReader.Read(Ingredients);
+			Categories = jsonConverter.DeserializeCategories(fileManager.Read("categories"));
+            Recipes = jsonConverter.DeserializeRecipes(fileManager.Read("recipes"));
+			Ingredients = jsonConverter.DeserializeIngredients(fileManager.Read("ingredients"));
 		}
 
 		public List<Category> Categories { get; }
@@ -24,9 +23,8 @@ namespace task2
 
 		public void SaveChanges()
 		{
-			FileSaver fileSaver = new FileSaver();
-			fileSaver.Save(Recipes);
-			fileSaver.Save(Ingredients);
+			fileManager.Save(jsonConverter.Save(Recipes), "recipes");
+			fileManager.Save(jsonConverter.Save(Ingredients), "ingredients");
 		}
 
 		public void Dispose()

@@ -23,7 +23,6 @@ namespace task2
                 ingredient.Id = ingredients.Count;
                 ingredient.Name = name;
                 ingredients.Add(ingredient);
-                Start.AddIngredient(ingredient);
             }
             else
             {
