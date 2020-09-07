@@ -9,12 +9,14 @@ namespace task2
 		: IDisposable
 	{
 		FileManager fileManager = new FileManager();
-		JsonConverter jsonConverter = new JsonConverter();
+		JsonConverter<Category> jsonConvertCategory = new JsonConverter<Category>();
+		JsonConverter<Recipe> jsonConvertRecipe = new JsonConverter<Recipe>();
+		JsonConverter<Ingredient> jsonConvertIngredient = new JsonConverter<Ingredient>();
 		public CatalogContext()
 		{
-			Categories = jsonConverter.DeserializeCategories(fileManager.Read("categories"));
-            Recipes = jsonConverter.DeserializeRecipes(fileManager.Read("recipes"));
-			Ingredients = jsonConverter.DeserializeIngredients(fileManager.Read("ingredients"));
+			Categories = jsonConvertCategory.Load(fileManager.Read("categories"));
+            Recipes = jsonConvertRecipe.Load(fileManager.Read("recipes"));
+			Ingredients = jsonConvertIngredient.Load(fileManager.Read("ingredients"));
 		}
 
 		public List<Category> Categories { get; }
@@ -23,8 +25,8 @@ namespace task2
 
 		public void SaveChanges()
 		{
-			fileManager.Save(jsonConverter.Save(Recipes), "recipes");
-			fileManager.Save(jsonConverter.Save(Ingredients), "ingredients");
+			fileManager.Write(jsonConvertRecipe.Save(Recipes), "recipes");
+			fileManager.Write(jsonConvertIngredient.Save(Ingredients), "ingredients");
 		}
 
 		public void Dispose()

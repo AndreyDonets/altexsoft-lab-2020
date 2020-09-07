@@ -11,7 +11,7 @@ namespace task2.Helpers
         {
             return File.ReadAllText($"{Environment.CurrentDirectory}\\Data\\{name}.json");
         }
-        public void Save(string text, string name)
+        public void Write(string text, string name)
         {
             File.WriteAllText($"{Environment.CurrentDirectory}\\Data\\{name}.json", text);
         }
